@@ -20,7 +20,7 @@ async function cargarEmpleados(){
    let listadoHtml = '';
      for (let empleado of empleados){
      let botonEliminar = '<a td:href="#" onclick="eliminarEmpleado('+empleado.id+')" class="btn btn-danger">Delete</a>';
-     let botonUpdate = '<a td:href="#" onclick="eliminarEmpleado('+empleado.id+')" class="btn btn-primary">Update</a>';
+     let botonUpdate = '<a td: onclick="href="update.html""  " class="btn btn-primary">Update</a>';
 
      let empleadoHtml = '<tr><td>'+empleado.nombre+'</td><td>'
                         +empleado.apellido+'</td><td>'+empleado.cargo+
@@ -46,3 +46,4 @@ async function eliminarEmpleado (id){
   });
   location.reload();
 }
+

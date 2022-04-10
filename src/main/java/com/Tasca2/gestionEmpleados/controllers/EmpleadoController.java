@@ -7,34 +7,28 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
+@RestController  //indica que la clase es controlador
 public class EmpleadoController {
 
     @Autowired
     private EmpleadoDAO empleadoDAO;
 
 
-    @RequestMapping(value = "api/empleados", method = RequestMethod.GET)
+    @RequestMapping(value = "api/empleados", method = RequestMethod.GET) //declara el request method, en caso de omision se declara GET por defecto
     public List<Empleado> getEmpleados() {
         return empleadoDAO.getEmpleados();
     }
 
-    @RequestMapping(value = "api/crearEmpleado")
-    public String crearEmpleado(@PathVariable Long id) {
-        return "empleados";
+    @RequestMapping(value = "api/empleados", method = RequestMethod.POST)
+    public void registrarEmpleado(@RequestBody Empleado empleado) { //convierte el json que recibe en un empleado
+        empleadoDAO.registrarEmpleado(empleado);
     }
 
 
-    @RequestMapping(value = "api/updateEmpleado{id}")
-    public Empleado updateEmpleado(@PathVariable Long id) {
-        Empleado prueba = new Empleado();
-        prueba.setId(23L);
-        prueba.setNombre("sara");
-        prueba.setApellido("garcia");
-        prueba.setCargo("pepe@pepe");
-        prueba.setSalario("welovepepe");
 
-        return prueba;
+    @RequestMapping(value = "api/empleados{id}", method = RequestMethod.PUT)
+    public void updateEmpleado(@RequestBody Empleado empleado) {
+        empleadoDAO.updateEmpleado(empleado);
     }
     @RequestMapping(value = "api/empleados{id}", method = RequestMethod.DELETE)
     public void deleteEmpleado(@PathVariable Long id) {

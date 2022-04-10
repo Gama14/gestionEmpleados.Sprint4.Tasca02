@@ -9,4 +9,7 @@ public interface EmpleadoDAO {
 
     void eliminar(Long id);
 
+    void registrarEmpleado(Empleado empleado);
+
+    void updateEmpleado(Empleado empleado);
 }
