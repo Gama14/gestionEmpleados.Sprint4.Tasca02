@@ -1,13 +1,13 @@
 // Call the dataTables jQuery plugin
 $(document).ready(function() {
-    alert(123);
-    cargarEmpleados();
+
+   cargarEmpleados();
   $('#empleados').DataTable();
 });
 
 
 async function cargarEmpleados(){
- const request = await fetch('empleados', {
+ const request = await fetch('api/empleados', {
     method: 'GET',
     headers: {
     'Accept': 'application/json',
@@ -19,14 +19,30 @@ async function cargarEmpleados(){
 
    let listadoHtml = '';
      for (let empleado of empleados){
+     let botonEliminar = '<a td:href="#" onclick="eliminarEmpleado('+empleado.id+')" class="btn btn-danger">Delete</a>';
+     let botonUpdate = '<a td:href="#" onclick="eliminarEmpleado('+empleado.id+')" class="btn btn-primary">Update</a>';
+
      let empleadoHtml = '<tr><td>'+empleado.nombre+'</td><td>'
                         +empleado.apellido+'</td><td>'+empleado.cargo+
                         '</td><td>'+empleado.salario+'</td><td>'+empleado.id+
-                        '</td><td><a td:href="#" class="btn btn-primary">Update</a><a td:href="#" class="btn btn-danger">Delete</a></td></tr>'
+                        '</td><td>'+botonUpdate+' '+botonEliminar+'</td></tr>'
        listadoHtml += empleadoHtml;
      }
 
      document.querySelector ('#empleados tbody').outerHTML = listadoHtml;
+}
+async function eliminarEmpleado (id){
 
+ if(!confirm('Desea eliminar este usuario?')){
+    return;
+ }
 
+ const request = await fetch('api/empleados' + id,{
+    method: 'DELETE',
+    headers: {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json'
+    }
+  });
+  location.reload();
 }

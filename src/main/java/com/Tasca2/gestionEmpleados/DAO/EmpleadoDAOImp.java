@@ -24,9 +24,10 @@ public class EmpleadoDAOImp implements EmpleadoDAO{
         return resultado;
     }
 
-   /* @Override
+
+   @Override
     public void eliminar(Long id) {
-        Empleado empleado = entityManager.find(Empleado.class,id);
+        Empleado empleado = entityManager.find(Empleado.class, id);
         entityManager.remove(empleado);
-    }*/
+    }
 }

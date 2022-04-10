@@ -14,18 +14,18 @@ public class EmpleadoController {
     private EmpleadoDAO empleadoDAO;
 
 
-    @RequestMapping(value = "empleados", method = RequestMethod.GET)
+    @RequestMapping(value = "api/empleados", method = RequestMethod.GET)
     public List<Empleado> getEmpleados() {
         return empleadoDAO.getEmpleados();
     }
 
-    @RequestMapping(value = "crearEmpleado")
+    @RequestMapping(value = "api/crearEmpleado")
     public String crearEmpleado(@PathVariable Long id) {
         return "empleados";
     }
 
 
-    @RequestMapping(value = "updateEmpleado{id}")
+    @RequestMapping(value = "api/updateEmpleado{id}")
     public Empleado updateEmpleado(@PathVariable Long id) {
         Empleado prueba = new Empleado();
         prueba.setId(23L);
@@ -36,10 +36,10 @@ public class EmpleadoController {
 
         return prueba;
     }
-   /* @RequestMapping(value = "listaEmpleados{id}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "api/empleados{id}", method = RequestMethod.DELETE)
     public void deleteEmpleado(@PathVariable Long id) {
        empleadoDAO.eliminar(id);
-    }*/
+    }
 
 
 

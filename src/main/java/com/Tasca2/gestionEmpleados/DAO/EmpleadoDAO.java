@@ -6,5 +6,7 @@ import java.util.List;
 
 public interface EmpleadoDAO {
     List<Empleado> getEmpleados();
-    //void eliminar(Long id);
+
+    void eliminar(Long id);
+
 }
