@@ -20,12 +20,12 @@ async function cargarEmpleados(){
    let listadoHtml = '';
      for (let empleado of empleados){
      let botonEliminar = '<a td:href="#" onclick="eliminarEmpleado('+empleado.id+')" class="btn btn-danger">Delete</a>';
-     let botonUpdate = '<a td: onclick="href="update.html""  " class="btn btn-primary">Update</a>';
+
 
      let empleadoHtml = '<tr><td>'+empleado.nombre+'</td><td>'
                         +empleado.apellido+'</td><td>'+empleado.cargo+
                         '</td><td>'+empleado.salario+'</td><td>'+empleado.id+
-                        '</td><td>'+botonUpdate+' '+botonEliminar+'</td></tr>'
+                        '</td><td>'+botonEliminar+'</td></tr>'
        listadoHtml += empleadoHtml;
      }
 

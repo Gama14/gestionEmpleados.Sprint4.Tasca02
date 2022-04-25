@@ -5,11 +5,10 @@ $(document).ready(function() {
 
 
 async function updateEmpleado(id){
-
- empleado.setNombre = document.getElementById('txtNombre').value
- empleado.setApellido = document.getElementById('txtApellido').value
- empleado.setCargo = document.getElementById('txtCargo').value
- empleado.setSalario = document.getElementById('txtSalario').value
+ empleado.Nombre = document.getElementById('txtNombre').value
+ empleado.Apellido = document.getElementById('txtApellido').value
+ empleado.Cargo = document.getElementById('txtCargo').value
+ empleado.Salario = document.getElementById('txtSalario').value
  }
  const request = await fetch('api/empleados'+ id, {
     method: 'PUT',

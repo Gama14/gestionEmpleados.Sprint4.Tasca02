@@ -27,7 +27,6 @@ public class EmpleadoController {
     @RequestMapping(value = "api/empleados", method = RequestMethod.POST)
     public void registrarEmpleado(@RequestBody Empleado empleado) { //convierte el json que recibe en un empleado
         empleadoDAO.registrarEmpleado(empleado);
-
     }
 
     @RequestMapping(value = "api/empleados", method = RequestMethod.PUT)
