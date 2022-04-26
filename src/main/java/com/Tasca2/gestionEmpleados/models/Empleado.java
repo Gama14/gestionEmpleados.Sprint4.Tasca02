@@ -4,11 +4,11 @@ import javax.persistence.*;
 
 @Entity
 @Table (name = "empleados")
-public class Empleado {
+public class Empleado { //contiene todas las variables propias de empleado
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column (name = "id")
+    @Id //indicamos que será la clave primaria
+    @GeneratedValue(strategy = GenerationType.IDENTITY) //
+    @Column (name = "id") //para indicar a hibarnate a que columna pertenece en la base de datos
     private Long id;
 
     @Column (name = "nombre")

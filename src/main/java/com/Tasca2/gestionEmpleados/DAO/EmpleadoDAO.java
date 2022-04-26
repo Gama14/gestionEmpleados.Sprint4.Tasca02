@@ -4,7 +4,7 @@ import com.Tasca2.gestionEmpleados.models.Empleado;
 
 import java.util.List;
 
-public interface EmpleadoDAO {
+public interface EmpleadoDAO { //DATA ACCES OBJECT -->clases que seran la conexion con la base de datos, cada clase corresponderá a una tabla
 
     List<Empleado> getEmpleados();
 
@@ -15,4 +15,8 @@ public interface EmpleadoDAO {
     void updateEmpleado(Empleado empleado);
 
     List<Empleado> getEmpleadosPorCargo(String cargo);
+
+    Empleado getEmpleadosPorId(Long id);
+
+
 }

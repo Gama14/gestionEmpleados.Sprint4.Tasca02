@@ -8,12 +8,12 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
 
-@Repository
-@Transactional
+@Repository //hace referencia a la conexion con la base de datos
+@Transactional //permite las consultas de SQL a la base de datos
 public class EmpleadoDAOImp implements EmpleadoDAO{
 
     @PersistenceContext
-    private EntityManager entityManager;
+    private EntityManager entityManager; //permite hacer la conexion con la base de datos
 
     @Override
     public List getEmpleados() {
@@ -29,7 +29,13 @@ public class EmpleadoDAOImp implements EmpleadoDAO{
         return resultado;
     }
 
-   @Override
+    @Override
+    public Empleado getEmpleadosPorId(Long id) {
+        Empleado resultado= entityManager.find(Empleado.class, id);
+        return resultado;
+    }
+
+    @Override
     public void eliminar(Long id) {
         Empleado empleado = entityManager.find(Empleado.class, id);
         entityManager.remove(empleado);
